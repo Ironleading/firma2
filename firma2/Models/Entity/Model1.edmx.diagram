@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a17cc25f40d4453cb3148fed3b51506c" Name="Diagram1">
+        <EntityTypeShape EntityType="DbisTAKİPModel.ADMIN" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbisTAKİPModel.COMPANIES" Width="1.5" PointX="5.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbisTAKİPModel.EMPLOYEES" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbisTAKİPModel.MISSION_DETAIL" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbisTAKİPModel.TASKS" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbisTAKİPModel.TBLDEPARTMAN" Width="1.5" PointX="0.75" PointY="3.25" IsExpanded="true" />
+        <AssociationConnector Association="DbisTAKİPModel.FK_EMPLOYEES_TBLDEPARTMAN" ManuallyRouted="false" />
+        <AssociationConnector Association="DbisTAKİPModel.FK_TASKS_TBLDEPARTMAN" ManuallyRouted="false" />
+        <AssociationConnector Association="DbisTAKİPModel.FK_TASKS_TBLDEPARTMAN1" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DbisTAKİPModel.CAGRIFIRMA" Width="1.5" PointX="8" PointY="1.375" />
+        <AssociationConnector Association="DbisTAKİPModel.FK_CAGRIFIRMA_COMPANIES" />
+        <EntityTypeShape EntityType="DbisTAKİPModel.CAGRIDETAY" Width="1.5" PointX="10.25" PointY="1.625" />
+        <AssociationConnector Association="DbisTAKİPModel.FK_CAGRIDETAY_CAGRIFIRMA" />
+        <EntityTypeShape EntityType="DbisTAKİPModel.MESAJLAR" Width="1.5" PointX="10.375" PointY="4.75" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

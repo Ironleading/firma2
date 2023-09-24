@@ -1,0 +1,29 @@
+﻿@using firma2.Models.Entity
+@model List<CAGRIDETAY>
+    @{
+        ViewBag.Title = "CagrıDetay";
+        Layout = "~/Views/Shared/firmalayout.cshtml";
+    }
+    <h3>Çağrı Detayları</h3>
+    <br />
+    <table class="table table-bordered">
+        <tr>
+            <th>ID</th>
+            <th>Açıklama</th>
+            <th>Tarih</th>
+            <th>Saat</th>
+        </tr>
+        @foreach (var x in Model)
+        {
+            <tr>
+                Javascript te veri tabanı çagırmak için et ifadesi kullanılır.
+                <td>@x.ID</td>
+                <td>@x.ACIKLAMA</td>
+                <td>@x.TARİH</td>
+                <td>@x.SAAT</td>
+            </tr>
+        }
+    </table>
+
+
+

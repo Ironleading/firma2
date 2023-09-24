@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DbisTAKİPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ADMIN">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="USER" Type="nvarchar" MaxLength="10" />
+    <Property Name="PASSWORD" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="CAGRIDETAY">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CAGRI" Type="int" />
+    <Property Name="ACIKLAMA" Type="nvarchar" MaxLength="250" />
+    <Property Name="TARİH" Type="date" />
+    <Property Name="SAAT" Type="char" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="CAGRIFIRMA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CAGRIFIRMA" Type="int" />
+    <Property Name="KONU" Type="nvarchar" MaxLength="50" />
+    <Property Name="ACIKLAMA" Type="nvarchar(max)" />
+    <Property Name="Durum" Type="bit" />
+    <Property Name="TARİH" Type="date" />
+  </EntityType>
+  <EntityType Name="COMPANIES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="30" />
+    <Property Name="Officall" Type="nvarchar" MaxLength="30" />
+    <Property Name="PHONE" Type="nvarchar" MaxLength="20" />
+    <Property Name="MAİL" Type="nvarchar" MaxLength="50" />
+    <Property Name="PASSWORD" Type="nvarchar" MaxLength="20" />
+    <Property Name="SECTOR" Type="nvarchar" MaxLength="50" />
+    <Property Name="CITY" Type="nvarchar" MaxLength="50" />
+    <Property Name="DISTRICT" Type="nvarchar" MaxLength="50" />
+    <Property Name="ADDRESS" Type="nvarchar" MaxLength="200" />
+    <Property Name="Situation" Type="bit" />
+    <Property Name="zxc" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="EMPLOYEES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="30" />
+    <Property Name="SURNAME" Type="nvarchar" MaxLength="30" />
+    <Property Name="MAİL" Type="nvarchar" MaxLength="50" />
+    <Property Name="PHONE" Type="nvarchar" MaxLength="20" />
+    <Property Name="IMAGE" Type="nvarchar" MaxLength="100" />
+    <Property Name="DEPARTMAN" Type="int" />
+    <Property Name="situation" Type="bit" />
+    <Property Name="aaaaa" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="MESAJLAR">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GÖNDEREN" Type="nvarchar" MaxLength="50" />
+    <Property Name="ALICI" Type="nvarchar" MaxLength="50" />
+    <Property Name="KONU" Type="nvarchar" MaxLength="50" />
+    <Property Name="MESAJ" Type="nvarchar(max)" />
+    <Property Name="TARİH" Type="date" />
+    <Property Name="DURUM" Type="bit" />
+  </EntityType>
+  <EntityType Name="MISSION_DETAIL">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TASK" Type="int" />
+    <Property Name="EXPLANATION" Type="nvarchar" MaxLength="200" />
+    <Property Name="DATE_" Type="date" />
+    <Property Name="TIME_" Type="char" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="TASKS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AUTHORIZED" Type="int" />
+    <Property Name="TASKTAKER" Type="int" />
+    <Property Name="EXPLANATION" Type="nvarchar" MaxLength="500" />
+    <Property Name="SITUATION" Type="nvarchar" MaxLength="20" />
+    <Property Name="DATE_" Type="date" />
+  </EntityType>
+  <EntityType Name="TBLDEPARTMAN">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AD" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <Association Name="FK_CAGRIDETAY_CAGRIFIRMA">
+    <End Role="CAGRIFIRMA" Type="Self.CAGRIFIRMA" Multiplicity="0..1" />
+    <End Role="CAGRIDETAY" Type="Self.CAGRIDETAY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CAGRIFIRMA">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CAGRIDETAY">
+        <PropertyRef Name="CAGRI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CAGRIFIRMA_COMPANIES">
+    <End Role="COMPANIES" Type="Self.COMPANIES" Multiplicity="0..1" />
+    <End Role="CAGRIFIRMA" Type="Self.CAGRIFIRMA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="COMPANIES">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CAGRIFIRMA">
+        <PropertyRef Name="CAGRIFIRMA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EMPLOYEES_TBLDEPARTMAN">
+    <End Role="TBLDEPARTMAN" Type="Self.TBLDEPARTMAN" Multiplicity="0..1" />
+    <End Role="EMPLOYEES" Type="Self.EMPLOYEES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBLDEPARTMAN">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="EMPLOYEES">
+        <PropertyRef Name="DEPARTMAN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TASKS_TBLDEPARTMAN">
+    <End Role="TBLDEPARTMAN" Type="Self.TBLDEPARTMAN" Multiplicity="0..1" />
+    <End Role="TASKS" Type="Self.TASKS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBLDEPARTMAN">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TASKS">
+        <PropertyRef Name="AUTHORIZED" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TASKS_TBLDEPARTMAN1">
+    <End Role="TBLDEPARTMAN" Type="Self.TBLDEPARTMAN" Multiplicity="0..1" />
+    <End Role="TASKS" Type="Self.TASKS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBLDEPARTMAN">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TASKS">
+        <PropertyRef Name="TASKTAKER" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DbisTAKİPModelStoreContainer">
+    <EntitySet Name="ADMIN" EntityType="Self.ADMIN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CAGRIDETAY" EntityType="Self.CAGRIDETAY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CAGRIFIRMA" EntityType="Self.CAGRIFIRMA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="COMPANIES" EntityType="Self.COMPANIES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EMPLOYEES" EntityType="Self.EMPLOYEES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MESAJLAR" EntityType="Self.MESAJLAR" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MISSION_DETAIL" EntityType="Self.MISSION_DETAIL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TASKS" EntityType="Self.TASKS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBLDEPARTMAN" EntityType="Self.TBLDEPARTMAN" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_CAGRIDETAY_CAGRIFIRMA" Association="Self.FK_CAGRIDETAY_CAGRIFIRMA">
+      <End Role="CAGRIFIRMA" EntitySet="CAGRIFIRMA" />
+      <End Role="CAGRIDETAY" EntitySet="CAGRIDETAY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CAGRIFIRMA_COMPANIES" Association="Self.FK_CAGRIFIRMA_COMPANIES">
+      <End Role="COMPANIES" EntitySet="COMPANIES" />
+      <End Role="CAGRIFIRMA" EntitySet="CAGRIFIRMA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EMPLOYEES_TBLDEPARTMAN" Association="Self.FK_EMPLOYEES_TBLDEPARTMAN">
+      <End Role="TBLDEPARTMAN" EntitySet="TBLDEPARTMAN" />
+      <End Role="EMPLOYEES" EntitySet="EMPLOYEES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TASKS_TBLDEPARTMAN" Association="Self.FK_TASKS_TBLDEPARTMAN">
+      <End Role="TBLDEPARTMAN" EntitySet="TBLDEPARTMAN" />
+      <End Role="TASKS" EntitySet="TASKS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TASKS_TBLDEPARTMAN1" Association="Self.FK_TASKS_TBLDEPARTMAN1">
+      <End Role="TBLDEPARTMAN" EntitySet="TBLDEPARTMAN" />
+      <End Role="TASKS" EntitySet="TASKS" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

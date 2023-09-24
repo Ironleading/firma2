@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DbisTAKİPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ADMIN">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="USER" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="PASSWORD" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="COMPANIES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Officall" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="PHONE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="MAİL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SECTOR" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CITY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DISTRICT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ADDRESS" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Situation" Type="Boolean" />
+    <NavigationProperty Name="CAGRIFIRMA" Relationship="DbisTAKİPModel.FK_CAGRIFIRMA_COMPANIES" FromRole="COMPANIES" ToRole="CAGRIFIRMA" />
+    <Property Name="PASSWORD" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="zxc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="EMPLOYEES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="SURNAME" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="MAİL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PHONE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="IMAGE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DEPARTMAN" Type="Int32" />
+    <Property Name="situation" Type="Boolean" />
+    <Property Name="aaaaa" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="TBLDEPARTMAN" Relationship="Self.FK_EMPLOYEES_TBLDEPARTMAN" FromRole="EMPLOYEES" ToRole="TBLDEPARTMAN" />
+  </EntityType>
+  <EntityType Name="MISSION_DETAIL">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TASK" Type="Int32" />
+    <Property Name="EXPLANATION" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="DATE_" Type="DateTime" Precision="0" />
+    <Property Name="TIME_" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TASKS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AUTHORIZED" Type="Int32" />
+    <Property Name="TASKTAKER" Type="Int32" />
+    <Property Name="EXPLANATION" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="SITUATION" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="DATE_" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="TBLDEPARTMAN" Relationship="Self.FK_TASKS_TBLDEPARTMAN" FromRole="TASKS" ToRole="TBLDEPARTMAN" />
+    <NavigationProperty Name="TBLDEPARTMAN1" Relationship="Self.FK_TASKS_TBLDEPARTMAN1" FromRole="TASKS" ToRole="TBLDEPARTMAN" />
+  </EntityType>
+  <EntityType Name="TBLDEPARTMAN">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AD" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="EMPLOYEES" Relationship="Self.FK_EMPLOYEES_TBLDEPARTMAN" FromRole="TBLDEPARTMAN" ToRole="EMPLOYEES" />
+    <NavigationProperty Name="TASKS" Relationship="Self.FK_TASKS_TBLDEPARTMAN" FromRole="TBLDEPARTMAN" ToRole="TASKS" />
+    <NavigationProperty Name="TASKS1" Relationship="Self.FK_TASKS_TBLDEPARTMAN1" FromRole="TBLDEPARTMAN" ToRole="TASKS" />
+  </EntityType>
+  <Association Name="FK_EMPLOYEES_TBLDEPARTMAN">
+    <End Role="TBLDEPARTMAN" Type="Self.TBLDEPARTMAN" Multiplicity="0..1" />
+    <End Role="EMPLOYEES" Type="Self.EMPLOYEES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBLDEPARTMAN">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="EMPLOYEES">
+        <PropertyRef Name="DEPARTMAN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TASKS_TBLDEPARTMAN">
+    <End Role="TBLDEPARTMAN" Type="Self.TBLDEPARTMAN" Multiplicity="0..1" />
+    <End Role="TASKS" Type="Self.TASKS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBLDEPARTMAN">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TASKS">
+        <PropertyRef Name="AUTHORIZED" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TASKS_TBLDEPARTMAN1">
+    <End Role="TBLDEPARTMAN" Type="Self.TBLDEPARTMAN" Multiplicity="0..1" />
+    <End Role="TASKS" Type="Self.TASKS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBLDEPARTMAN">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TASKS">
+        <PropertyRef Name="TASKTAKER" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DbisTAKİPEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ADMIN" EntityType="Self.ADMIN" />
+    <EntitySet Name="COMPANIES" EntityType="Self.COMPANIES" />
+    <EntitySet Name="EMPLOYEES" EntityType="Self.EMPLOYEES" />
+    <EntitySet Name="MISSION_DETAIL" EntityType="Self.MISSION_DETAIL" />
+    <EntitySet Name="TASKS" EntityType="Self.TASKS" />
+    <EntitySet Name="TBLDEPARTMAN" EntityType="Self.TBLDEPARTMAN" />
+    <AssociationSet Name="FK_EMPLOYEES_TBLDEPARTMAN" Association="Self.FK_EMPLOYEES_TBLDEPARTMAN">
+      <End Role="TBLDEPARTMAN" EntitySet="TBLDEPARTMAN" />
+      <End Role="EMPLOYEES" EntitySet="EMPLOYEES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TASKS_TBLDEPARTMAN" Association="Self.FK_TASKS_TBLDEPARTMAN">
+      <End Role="TBLDEPARTMAN" EntitySet="TBLDEPARTMAN" />
+      <End Role="TASKS" EntitySet="TASKS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TASKS_TBLDEPARTMAN1" Association="Self.FK_TASKS_TBLDEPARTMAN1">
+      <End Role="TBLDEPARTMAN" EntitySet="TBLDEPARTMAN" />
+      <End Role="TASKS" EntitySet="TASKS" />
+    </AssociationSet>
+    <EntitySet Name="CAGRIFIRMA" EntityType="DbisTAKİPModel.CAGRIFIRMA" />
+    <AssociationSet Name="FK_CAGRIFIRMA_COMPANIES" Association="DbisTAKİPModel.FK_CAGRIFIRMA_COMPANIES">
+      <End Role="COMPANIES" EntitySet="COMPANIES" />
+      <End Role="CAGRIFIRMA" EntitySet="CAGRIFIRMA" />
+    </AssociationSet>
+    <EntitySet Name="CAGRIDETAY" EntityType="DbisTAKİPModel.CAGRIDETAY" />
+    <AssociationSet Name="FK_CAGRIDETAY_CAGRIFIRMA" Association="DbisTAKİPModel.FK_CAGRIDETAY_CAGRIFIRMA">
+      <End Role="CAGRIFIRMA" EntitySet="CAGRIFIRMA" />
+      <End Role="CAGRIDETAY" EntitySet="CAGRIDETAY" />
+    </AssociationSet>
+    <EntitySet Name="MESAJLAR" EntityType="DbisTAKİPModel.MESAJLAR" />
+  </EntityContainer>
+  <EntityType Name="CAGRIFIRMA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CAGRIFIRMA1" Type="Int32" />
+    <Property Name="KONU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ACIKLAMA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Durum" Type="Boolean" />
+    <Property Name="TARİH" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="COMPANIES" Relationship="DbisTAKİPModel.FK_CAGRIFIRMA_COMPANIES" FromRole="CAGRIFIRMA" ToRole="COMPANIES" />
+    <NavigationProperty Name="CAGRIDETAY" Relationship="DbisTAKİPModel.FK_CAGRIDETAY_CAGRIFIRMA" FromRole="CAGRIFIRMA" ToRole="CAGRIDETAY" />
+  </EntityType>
+  <Association Name="FK_CAGRIFIRMA_COMPANIES">
+    <End Type="DbisTAKİPModel.COMPANIES" Role="COMPANIES" Multiplicity="0..1" />
+    <End Type="DbisTAKİPModel.CAGRIFIRMA" Role="CAGRIFIRMA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="COMPANIES">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CAGRIFIRMA">
+        <PropertyRef Name="CAGRIFIRMA1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="CAGRIDETAY">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CAGRI" Type="Int32" />
+    <Property Name="ACIKLAMA" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="TARİH" Type="DateTime" Precision="0" />
+    <Property Name="SAAT" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="CAGRIFIRMA" Relationship="DbisTAKİPModel.FK_CAGRIDETAY_CAGRIFIRMA" FromRole="CAGRIDETAY" ToRole="CAGRIFIRMA" />
+  </EntityType>
+  <Association Name="FK_CAGRIDETAY_CAGRIFIRMA">
+    <End Type="DbisTAKİPModel.CAGRIFIRMA" Role="CAGRIFIRMA" Multiplicity="0..1" />
+    <End Type="DbisTAKİPModel.CAGRIDETAY" Role="CAGRIDETAY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CAGRIFIRMA">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CAGRIDETAY">
+        <PropertyRef Name="CAGRI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="MESAJLAR">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GÖNDEREN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ALICI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KONU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MESAJ" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TARİH" Type="DateTime" Precision="0" />
+    <Property Name="DURUM" Type="Boolean" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,34 @@
+﻿@model firma2.Models.Entity.COMPANIES
+@{
+    ViewBag.Title = "Profilidüzenle";
+    Layout = "~/Views/Shared/firmalayout.cshtml";
+}
+
+<h2>Firma Profil Düzenleme Sayfası </h2>
+<br />
+@using (Html.BeginForm("Profil Güncelle", "Default", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.ID)
+    <br />
+    @Html.Label("Firma Adı")
+    @Html.TextBoxFor(x => x.Officall, new { @class = "form-control" })
+    <br />
+    @Html.Label("Yetkili")
+    @Html.TextBoxFor(x => x.NAME,  new { @class = "form-control" })
+    <br />
+    @Html.Label("Şifre")
+    @Html.PasswordFor(x => x.PASSWORD, new { @class = "form-control" })
+    <br />
+    @Html.Label("Sektor")
+    @Html.TextBoxFor(x => x.SECTOR, new { @class = "form-control" })
+    <br />
+    @Html.Label("İl")
+    @Html.TextBoxFor(x => x.CITY, new { @class = "form-control" })
+    <br />
+    @Html.Label("Adres")
+    @Html.TextBoxFor(x => x.ADDRESS, new { @class = "form-control" })
+    <br />
+
+    <button class="btn btn-primary">Çağrı Düzenle</button>
+
+}

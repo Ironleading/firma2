@@ -1,0 +1,27 @@
+﻿@using firma2.Models.Entity
+@Model List<CAGRIFIRMA>
+    @{
+        ViewBag.Title = "PasifCagrilar";
+        Layout = "~/Views/Shared/firmalayout.cshtml";
+    }
+
+    <table class="table table-bordered">
+        <tr>
+            <th>ID</th>
+            <th>Konu</th>
+            <th>Tarih</th>
+            <th>Detaylar</th>
+        </tr>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <!--Javascript te veri tabanı çagırmak için et ifadesi kullanılır.-->
+                <td>@x.ID</td>
+                <td>@x.KONU</td>
+                <td>@x.TARİH</td>
+                <td><a href="/Default/CagrıDetay/@x.ID" class="btn btn-primary">Detaylar</a></td>
+            </tr>
+        }
+    </table>
+    <a href="#" class="btn btn-primary">Yeni Çagrı Ekle</a>
+

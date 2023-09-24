@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DbisTAKİPModelStoreContainer" CdmEntityContainer="DbisTAKİPEntities">
+    <EntitySetMapping Name="ADMIN">
+      <EntityTypeMapping TypeName="DbisTAKİPModel.ADMIN">
+        <MappingFragment StoreEntitySet="ADMIN">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="USER" ColumnName="USER" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="COMPANIES">
+      <EntityTypeMapping TypeName="DbisTAKİPModel.COMPANIES">
+        <MappingFragment StoreEntitySet="COMPANIES">
+          <ScalarProperty Name="zxc" ColumnName="zxc" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="Officall" ColumnName="Officall" />
+          <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+          <ScalarProperty Name="MAİL" ColumnName="MAİL" />
+          <ScalarProperty Name="SECTOR" ColumnName="SECTOR" />
+          <ScalarProperty Name="CITY" ColumnName="CITY" />
+          <ScalarProperty Name="DISTRICT" ColumnName="DISTRICT" />
+          <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+          <ScalarProperty Name="Situation" ColumnName="Situation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EMPLOYEES">
+      <EntityTypeMapping TypeName="DbisTAKİPModel.EMPLOYEES">
+        <MappingFragment StoreEntitySet="EMPLOYEES">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="SURNAME" ColumnName="SURNAME" />
+          <ScalarProperty Name="MAİL" ColumnName="MAİL" />
+          <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+          <ScalarProperty Name="IMAGE" ColumnName="IMAGE" />
+          <ScalarProperty Name="DEPARTMAN" ColumnName="DEPARTMAN" />
+          <ScalarProperty Name="situation" ColumnName="situation" />
+          <ScalarProperty Name="aaaaa" ColumnName="aaaaa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MISSION_DETAIL">
+      <EntityTypeMapping TypeName="DbisTAKİPModel.MISSION_DETAIL">
+        <MappingFragment StoreEntitySet="MISSION_DETAIL">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TASK" ColumnName="TASK" />
+          <ScalarProperty Name="EXPLANATION" ColumnName="EXPLANATION" />
+          <ScalarProperty Name="DATE_" ColumnName="DATE_" />
+          <ScalarProperty Name="TIME_" ColumnName="TIME_" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TASKS">
+      <EntityTypeMapping TypeName="DbisTAKİPModel.TASKS">
+        <MappingFragment StoreEntitySet="TASKS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="AUTHORIZED" ColumnName="AUTHORIZED" />
+          <ScalarProperty Name="TASKTAKER" ColumnName="TASKTAKER" />
+          <ScalarProperty Name="EXPLANATION" ColumnName="EXPLANATION" />
+          <ScalarProperty Name="SITUATION" ColumnName="SITUATION" />
+          <ScalarProperty Name="DATE_" ColumnName="DATE_" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBLDEPARTMAN">
+      <EntityTypeMapping TypeName="DbisTAKİPModel.TBLDEPARTMAN">
+        <MappingFragment StoreEntitySet="TBLDEPARTMAN">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="AD" ColumnName="AD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CAGRIFIRMA">
+      <EntityTypeMapping TypeName="DbisTAKİPModel.CAGRIFIRMA">
+        <MappingFragment StoreEntitySet="CAGRIFIRMA">
+          <ScalarProperty Name="TARİH" ColumnName="TARİH" />
+          <ScalarProperty Name="Durum" ColumnName="Durum" />
+          <ScalarProperty Name="ACIKLAMA" ColumnName="ACIKLAMA" />
+          <ScalarProperty Name="KONU" ColumnName="KONU" />
+          <ScalarProperty Name="CAGRIFIRMA1" ColumnName="CAGRIFIRMA" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CAGRIDETAY">
+      <EntityTypeMapping TypeName="DbisTAKİPModel.CAGRIDETAY">
+        <MappingFragment StoreEntitySet="CAGRIDETAY">
+          <ScalarProperty Name="SAAT" ColumnName="SAAT" />
+          <ScalarProperty Name="TARİH" ColumnName="TARİH" />
+          <ScalarProperty Name="ACIKLAMA" ColumnName="ACIKLAMA" />
+          <ScalarProperty Name="CAGRI" ColumnName="CAGRI" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MESAJLAR">
+      <EntityTypeMapping TypeName="DbisTAKİPModel.MESAJLAR">
+        <MappingFragment StoreEntitySet="MESAJLAR">
+          <ScalarProperty Name="DURUM" ColumnName="DURUM" />
+          <ScalarProperty Name="TARİH" ColumnName="TARİH" />
+          <ScalarProperty Name="MESAJ" ColumnName="MESAJ" />
+          <ScalarProperty Name="KONU" ColumnName="KONU" />
+          <ScalarProperty Name="ALICI" ColumnName="ALICI" />
+          <ScalarProperty Name="GÖNDEREN" ColumnName="GÖNDEREN" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
